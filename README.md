@@ -38,3 +38,14 @@ docker compose up
 The Rails API will be running on `localhost:3000`.
 
 - http://localhost:3000
+
+## FAQ ⁉️
+
+### Explain the money flow and the information flow in the acquirer market and the role of the main players.
+_TBA_
+
+### Explain the difference between acquirer, sub-acquirer and payment gateway and how the flow explained in question 1 changes for these players.
+_TBA_
+
+### Explain what chargebacks are, how they differ from cancellations and what is their connection with fraud in the acquiring world.
+_TBA_
