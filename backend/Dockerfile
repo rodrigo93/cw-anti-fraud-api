@@ -16,6 +16,8 @@ RUN mkdir -p ${BACKEND_DIR}
 # `cd` to the `${BACKEND_DIR}` dir, all RUN commands from now will be from this path
 WORKDIR ${BACKEND_DIR}
 
+COPY .env.docker .env
+
 # Copy the Gemfile and Gemfile.lock into the image.
 COPY Gemfile* ${BACKEND_DIR}/
 
