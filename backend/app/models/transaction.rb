@@ -7,4 +7,6 @@ class Transaction < ApplicationRecord
     :transaction_id,
     :transaction_amount,
     :transaction_date
+
+  validates_uniqueness_of :transaction_id
 end

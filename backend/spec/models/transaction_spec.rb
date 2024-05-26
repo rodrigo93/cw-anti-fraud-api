@@ -10,5 +10,7 @@ RSpec.describe Transaction, type: :model do
     it { is_expected.to validate_presence_of :transaction_id }
     it { is_expected.to validate_presence_of :transaction_date }
     it { is_expected.to validate_presence_of :transaction_amount }
+
+    it { is_expected.to validate_uniqueness_of :transaction_id }
   end
 end
