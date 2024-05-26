@@ -9,4 +9,8 @@ class Transaction < ApplicationRecord
             :transaction_id, presence: true
 
   validates :transaction_id, uniqueness: true
+
+  def approve?
+    !has_cbk
+  end
 end
