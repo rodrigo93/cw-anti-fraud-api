@@ -81,9 +81,9 @@ RSpec.describe TransactionsController, type: :controller do
       end
 
       context 'when it does not comply with Rules::MultipleTransactionsRule' do
-        before { create_list :transaction, Rules::MultipleTransactionsRule::TRANSACTION_LIMIT + 1, user_id: user_id }
+        before { create_list :transaction, Rules::MultipleTransactionsRule::TRANSACTION_LIMIT + 1, user_id: }
 
-        let(:transaction) { create :transaction, user_id: user_id }
+        let(:transaction) { create :transaction, user_id: }
 
         it_behaves_like 'denying the transaction'
       end
