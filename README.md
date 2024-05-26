@@ -25,6 +25,7 @@ Create databases:
 cd backend
 docker compose run --rm backend bin/rails db:create
 docker compose run --rm backend bin/rails db:migrate
+docker compose run --rm backend bin/rails db:migrate RAILS_ENV=test
 docker compose run --rm backend bin/rails db:seed
 ```
 
@@ -49,3 +50,23 @@ _TBA_
 
 ### Explain what chargebacks are, how they differ from cancellations and what is their connection with fraud in the acquiring world.
 _TBA_
+
+## Solution
+
+## Class Diagram
+
+```mermaid
+classDiagram
+    class transactions {
+        +transaction_id: Integer
+        +merchant_id: Integer
+        +user_id: Integer
+        +card_number: String
+        +transaction_date: DateTime
+        +transaction_amount: Decimal
+        +device_id: Integer
+        +has_cbk: Boolean
+        +created_at: DateTime
+        +updated_at: DateTime
+    }
+```

@@ -3,10 +3,20 @@ require: rubocop-rails
 AllCops:
   NewCops: enable
 
-
+# Metrics
 Metrics/BlockLength:
   Exclude:
     - spec/**/*
+
+Metrics/MethodLength:
+    Exclude:
+        - spec/**/*
+        - db/**/*
+
+# Rails
+Rails/Output:
+  Exclude:
+    - db/**/*
 
 # Styles
 Style/Documentation:
