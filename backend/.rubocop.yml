@@ -24,3 +24,5 @@ Style/Documentation:
 Style/BlockComments:
   Exclude:
     - spec/**/*
+Style/ClassAndModuleChildren:
+  Enabled: false
