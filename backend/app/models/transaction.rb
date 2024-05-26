@@ -11,6 +11,12 @@ class Transaction < ApplicationRecord
   validates :transaction_id, uniqueness: true
 
   def approve?
-    !has_cbk
+    rules.all?(&:apply)
+  end
+
+  private
+
+  def rules
+    [HasCbkRule.new(self), TransactionAmountAndTimeRule.new(self)]
   end
 end
