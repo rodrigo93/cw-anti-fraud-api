@@ -1,5 +1,18 @@
 # Anti-Fraud API
 
+## Table of Contents
+1. [Description](#description-)
+2. [Setup](#setup-)
+3. [Accessing the app](#accessing-the-app-)
+4. [Solution](#solution)
+  - [Class Diagram](#class-diagram)
+  - [Endpoints](#endpoints)
+  - [Transactions Anti-fraud Rules](#transactions-anti-fraud-rules)
+5. [FAQ](#faq-)
+6. [Conclusions](#conclusions-)
+
+## Description 📝
+
 Anti Fraud API is a simple Rails API that provides endpoints to manage users and transactions.
 
 The Rails API is configured to use the following:
