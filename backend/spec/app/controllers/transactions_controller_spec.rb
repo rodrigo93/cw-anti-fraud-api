@@ -87,6 +87,14 @@ RSpec.describe TransactionsController, type: :controller do
 
         it_behaves_like 'denying the transaction'
       end
+
+      context 'when it does not comply with Rules::PreviousChargebackRule' do
+        before { create :transaction, user_id:, has_cbk: true }
+
+        let(:transaction) { create :transaction, user_id: }
+
+        it_behaves_like 'denying the transaction'
+      end
     end
 
     context 'when the transaction already exists' do

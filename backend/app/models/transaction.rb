@@ -22,7 +22,8 @@ class Transaction < ApplicationRecord
       Rules::MultipleTransactionsRule.new(self),
       Rules::RepeatedCardNumberRule.new(self),
       Rules::TransactionAmountAndTimeRule.new(self),
-      Rules::UnusualDeviceRule.new(self)
+      Rules::UnusualDeviceRule.new(self),
+      Rules::PreviousChargebackRule.new(self)
     ]
   end
 end
