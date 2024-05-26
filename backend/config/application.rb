@@ -26,6 +26,9 @@ module ReactRailsBoilerplate
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
+    # Rack::Attack configuration
+    config.middleware.use Rack::Attack
+
     config.generators do |g|
       g.test_framework :rspec # Generate RSpec tests instead of Minitest
     end
