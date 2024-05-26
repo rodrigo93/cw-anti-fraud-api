@@ -104,6 +104,9 @@ If the `device_id` associated with the transaction is not one that the user typi
 #### Repeated Card Number
 If the same `card_number` is used in rapid succession for multiple transactions, it could be a sign of a stolen card.
 
+#### Has Previous Chargeback
+If the user has had a chargeback before, the transaction should be denied.
+
 ### Future Improvements
 
 - Implement geo location rule, where if it's a transaction outside of the common used region, we could deny it.
