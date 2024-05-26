@@ -19,7 +19,10 @@ class Transaction < ApplicationRecord
   def rules
     [
       Rules::HasCbkRule.new(self),
-      Rules::TransactionAmountAndTimeRule.new(self)
+      Rules::MultipleTransactionsRule.new(self),
+      Rules::RepeatedCardNumberRule.new(self),
+      Rules::TransactionAmountAndTimeRule.new(self),
+      Rules::UnusualDeviceRule.new(self)
     ]
   end
 end

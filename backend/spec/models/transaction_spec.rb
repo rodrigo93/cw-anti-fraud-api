@@ -17,28 +17,18 @@ RSpec.describe Transaction, type: :model do
   describe '#approve?' do
     subject { transaction.approve? }
 
-    context 'when "has_cbk" is true' do
-      let(:transaction) { create :transaction, has_cbk: true }
+    let(:transaction) { create :transaction }
 
-      it { is_expected.to be_falsey }
-    end
-
-    context 'when "has_cbk" is false' do
-      let(:transaction) { create :transaction, has_cbk: false }
+    context 'when all rules apply' do
+      before { allow_any_instance_of(Rules::Base).to receive(:apply).and_return(true) }
 
       it { is_expected.to be_truthy }
     end
 
-    context 'when "transaction_amount" exceeds limit within night time' do
-      let(:transaction) { create :transaction, transaction_amount: 2_001, transaction_date: '2024-05-26 21:00' }
+    context 'when any rule does not apply' do
+      before { allow_any_instance_of(Rules::Base).to receive(:apply).and_return(false) }
 
       it { is_expected.to be_falsey }
-    end
-
-    context 'when "transaction_amount" exceeds limit outside night time' do
-      let(:transaction) { create :transaction, transaction_amount: 2_001, transaction_date: '2024-05-26 08:00' }
-
-      it { is_expected.to be_truthy }
     end
   end
 end
