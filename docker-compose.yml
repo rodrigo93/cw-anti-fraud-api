@@ -6,7 +6,7 @@ services:
     build:
       context: ./backend # This is going to be the "root" of the build and it uses the Dockfile in it
     env_file:
-      - ./backend/.env
+      - ./backend/.env.docker
     ports:
       - "3000:3000"
     depends_on:
@@ -15,7 +15,7 @@ services:
     image: postgres:16
     restart: always
     env_file:
-      - ./backend/.env
+      - ./backend/.env.docker
     ports:
       - "5432:5432"
     volumes:
