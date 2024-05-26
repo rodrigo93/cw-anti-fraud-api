@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 class Transaction < ApplicationRecord
-  validates_presence_of :card_number,
-    :merchant_id,
-    :user_id,
-    :transaction_id,
-    :transaction_amount,
-    :transaction_date
+  validates :card_number,
+            :merchant_id,
+            :user_id,
+            :transaction_amount,
+            :transaction_date,
+            :transaction_id, presence: true
 
-  validates_uniqueness_of :transaction_id
+  validates :transaction_id, uniqueness: true
 end

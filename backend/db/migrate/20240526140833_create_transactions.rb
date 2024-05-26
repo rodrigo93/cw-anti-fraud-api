@@ -8,8 +8,9 @@ class CreateTransactions < ActiveRecord::Migration[7.1]
       t.string :card_number
       t.datetime :transaction_date
       t.decimal :transaction_amount
+      t.integer :transaction_id
       t.string :device_id
-      t.boolean :has_cbk, default: false
+      t.boolean :has_cbk, default: false, null: false
 
       t.timestamps
     end
