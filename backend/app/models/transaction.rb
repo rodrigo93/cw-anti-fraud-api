@@ -17,6 +17,9 @@ class Transaction < ApplicationRecord
   private
 
   def rules
-    [HasCbkRule.new(self), TransactionAmountAndTimeRule.new(self)]
+    [
+      Rules::HasCbkRule.new(self),
+      Rules::TransactionAmountAndTimeRule.new(self)
+    ]
   end
 end
