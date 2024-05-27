@@ -46,15 +46,15 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_USER: react_rails_boilerplate
-          POSTGRES_PASSWORD: super_secret_password
           POSTGRES_DB: test
+          POSTGRES_USER: cw_anti_fraud
+          POSTGRES_PASSWORD: super_secret_password
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     env:
       RAILS_ENV: test
       RAILS_DATABASE_HOST: 127.0.0.1
-      RAILS_DATABASE_USER: postgres
-      RAILS_DATABASE_PASSWORD: super_secret_password
+      POSTGRES_USER: cw_anti_fraud
+      POSTGRES_PASSWORD: super_secret_password
     steps:
       - uses: actions/checkout@v3 # https://github.com/marketplace/actions/checkout
       - uses: ruby/setup-ruby@v1  # https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
