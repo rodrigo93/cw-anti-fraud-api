@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./backend
+        working-directory: .
     env:
       RAILS_ENV: test
     steps:
@@ -16,14 +16,14 @@ jobs:
         with:
           ruby-version: 3.2.2
           bundler-cache: true
-          working-directory: ./backend
+          working-directory: .
       - name: Run bundle-audit
         run: bundle exec bundle-audit
   rubocop:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./backend
+        working-directory: .
     env:
       RAILS_ENV: test
     steps:
@@ -32,14 +32,14 @@ jobs:
         with:
           ruby-version: 3.2.2
           bundler-cache: true
-          working-directory: ./backend
+          working-directory: .
       - name: Run Rubocop Lints
         run: bundle exec rubocop
   rspec:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./backend
+        working-directory: .
     services:
       postgres:
         image: postgres:16
@@ -61,7 +61,7 @@ jobs:
         with:
           ruby-version: 3.2.2
           bundler-cache: true
-          working-directory: ./backend
+          working-directory: .
       - name: Migration
         run: |
           bundle exec rails db:create

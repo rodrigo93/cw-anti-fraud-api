@@ -3,12 +3,17 @@
 ## Table of Contents
 1. [Description](#description-)
 2. [Setup](#setup-)
+   - [With Docker](#with-docker-)
+   - [Locally](#locally-)
 3. [Accessing the app](#accessing-the-app-)
 4. [Solution](#solution)
-  - [Class Diagram](#class-diagram)
-  - [Endpoints](#endpoints)
-  - [Transactions Anti-fraud Rules](#transactions-anti-fraud-rules)
+   - [Class Diagram](#class-diagram)
+   - [Endpoints](#endpoints)
+   - [Transactions Anti-fraud Rules](#transactions-anti-fraud-rules)
 5. [FAQ](#faq-)
+   - [Explain the money flow and the information flow in the acquirer market and the role of the main players.](#explain-the-money-flow-and-the-information-flow-in-the-acquirer-market-and-the-role-of-the-main-players)
+   - [Explain the difference between acquirer, sub-acquirer and payment gateway and how the flow explained in question 1 changes for these players](#explain-the-difference-between-acquirer-sub-acquirer-and-payment-gateway-and-how-the-flow-explained-in-question-1-changes-for-these-players)
+   - [Explain what chargebacks are, how they differ from cancellations and what is their connection with fraud in the acquiring world.](#explain-what-chargebacks-are-how-they-differ-from-cancellations-and-what-is-their-connection-with-fraud-in-the-acquiring-world)
 6. [Conclusions](#conclusions-)
 
 ## Description 📝
@@ -28,6 +33,7 @@ Everything is configured to run with Docker and Docker Compose.
 
 ## Setup 🛠️
 
+### With Docker 🐳
 All you need to do is build the images and run the containers.
 ```shell
 docker compose build
@@ -35,16 +41,61 @@ docker compose build
 
 Create databases:
 ```shell
-cd backend
-docker compose run --rm backend bin/rails db:create
-docker compose run --rm backend bin/rails db:migrate
-docker compose run --rm backend bin/rails db:migrate RAILS_ENV=test
-docker compose run --rm backend bin/rails db:seed
+docker compose run --rm api bin/rails db:create
+```
+
+Run migrations:
+```shell
+docker compose run --rm api bin/rails db:migrate
+```
+
+Seed the database:
+```shell
+docker compose run --rm api bin/rails db:seed
 ```
 
 Run containers:
 ```shell
 docker compose up
+```
+
+### Locally 🖥️
+
+> ⚠️ Make sure to have Ruby 3 installed and PostgreSQL running. ⚠️
+
+Install dependencies:
+```shell
+bundle install
+```
+
+Create databases:
+```shell
+bin/rails db:create
+```
+
+Run migrations:
+```shell
+bin/rails db:migrate
+```
+
+Seed the database:
+```shell
+bin/rails db:seed
+```
+
+Run the server:
+```shell
+bin/rails s
+```
+
+Run tests:
+```shell
+bundle exec rspec
+```
+
+Run lints:
+```shell
+bundle exec rubocop
 ```
 
 ## Accessing the app 🌎
