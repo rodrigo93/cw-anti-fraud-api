@@ -26,7 +26,7 @@ RSpec.describe Transaction, type: :model do
     end
 
     context 'when any rule does not apply' do
-      before { allow_any_instance_of(Rules::Base).to receive(:apply).and_return(false) }
+      before { allow_any_instance_of(Rules::HasCbkRule).to receive(:apply).and_return(false) }
 
       it { is_expected.to be_falsey }
     end
